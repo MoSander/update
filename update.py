@@ -1,11 +1,8 @@
 """
   Function:  updateChEMBL 
   --------------------
- 
-housekeeping pipeline to automatically update the tables pfam_domains and tools
-when a new version of ChEMBL is available.
-The old version of ChEMBL is dropped and the new uploaded.This script needs to 
-be run as sudo ... the path o the directory should be given like ~/Desktop/chembl_06_mysql
+
+Download and install the latest version of ChEMBL.
 
 momo.sander@googlemail.com
 """                                                  
@@ -23,10 +20,6 @@ def updateChEMBL(release, user, pword, host, port):
 if __name__ == '__main__':
   import sys                                        
   import os
-  if len(sys.argv) != 6:                  
-    print "specify  release, user, pword, host, port"
-    sys.exit()                                                                             
-                                        
   release = str(sys.argv[1])
   user = str(sys.argv[2])
   pword = str(sys.argv[3])
