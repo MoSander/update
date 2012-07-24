@@ -10,7 +10,11 @@ momo.sander@googlemail.com
 def updateChEMBL(release, user, pword, host, port): 
   import os
   import sys
-   
+  
+
+  # On Mac...
+  os.system("ftp ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_%s/chembl_%s_mysql.tar.gz" %(release, release)) 
+  # On Linux...
   os.system("wget ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_%s/chembl_%s_mysql.tar.gz" %(release, release))
   os.system("tar -zxvf chembl_%s_mysql.tar.gz" % release)
   os.system("mysqladmin -u%s -p%s -h%s -P%s create chembl_%s" %(user, pword, host, port, release))    
